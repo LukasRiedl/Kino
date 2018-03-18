@@ -19,7 +19,7 @@ public class Room implements Serializable{
 
 
 
-    public Room(String name, List<Seat> seats) {
+    public Room(String name) {
         this.setName(name);
     }
 
