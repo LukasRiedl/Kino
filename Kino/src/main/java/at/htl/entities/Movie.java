@@ -25,13 +25,18 @@ public class Movie implements Serializable {
     @Column(name="MOV_DESCRIPTION")
     private String description;
 
+    @Lob
+    @Column(name="MOV_PICTURE")
+    private byte[] moviePic;
 
 
-    public Movie(String name, String length, Long fsk, String description) {
+
+    public Movie(String name, String length, Long fsk, String description, byte[] pic) {
         this.setName(name);
         this.setLength(length);
         this.setFsk(fsk);
         this.setDescription(description);
+        this.setMoviePic(pic);
     }
 
     public Movie() {
@@ -75,5 +80,13 @@ public class Movie implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public byte[] getMoviePic() {
+        return moviePic;
+    }
+
+    public void setMoviePic(byte[] moviePic) {
+        this.moviePic = moviePic;
     }
 }
