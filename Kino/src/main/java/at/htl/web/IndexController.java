@@ -49,6 +49,9 @@ public class IndexController implements Serializable{
         return movieFacade.getAllMovies();
     }
 
+    public void reservateCards()
+    {
 
+    }
 
 }
