@@ -20,13 +20,15 @@ public class Card implements Serializable {
     @Column(name="CA_PRICE")
     private Long price;
 
-    @Column(name="CA_DATE")
-    private Date date;
+    @Column(name="CA_SEAT")
+    private String seat;
 
-    public Card(Presentation presentation, Long price, Date date) {
+
+    public Card(Presentation presentation, Long price, String seat) {
         this.setPresentation(presentation);
         this.setPrice(price);
-        this.setDate(date);
+        this.setSeat(seat);
+
     }
 
     public Card() {
@@ -57,11 +59,12 @@ public class Card implements Serializable {
         this.price = price;
     }
 
-    public Date getDate() {
-        return date;
+
+    public String getSeat() {
+        return seat;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setSeat(String seat) {
+        this.seat = seat;
     }
 }

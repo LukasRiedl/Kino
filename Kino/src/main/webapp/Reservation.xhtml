@@ -10,9 +10,48 @@
     <title>Kino</title>
 </h:head>
 <h:body>
+    <h:form>
+
+    <h1>#{indexController.selectedMovie.name}</h1>
+
+        <p:dataTable var="mov" value="#{indexController.selectedMovie}"
+                     editable="false">
+            <p:column style="width:5%">
+                <p:graphicImage value="#{indexController.image}">
+                    <f:param name="pid" value="#{mov.id}" />
+                </p:graphicImage>
+            </p:column>
+            <p:column style="width:20%">
+                <h:outputLabel value="#{mov.description}"/>
+            </p:column>
+
+        </p:dataTable>
 
 
-    <h1>Reservation Page</h1>
 
+    <p:commandButton value="Zurück" action="/index.xhtml" actionListener="#{indexController.setSelectionNull}"/>
+    <p:commandButton value="Karte kaufen" actionListener="#{indexController.printCard}" action="/Kinokarte.xhtml"/>
+
+        <br></br>
+        <br></br>
+        <p:outputLabel  value="Vorstellung auswählen: " />
+        <p:selectOneMenu id="presentation" value="#{indexController.selectedStringPresentation}" >
+            <f:selectItem itemLabel="Wählen Sie eine Vorstellung aus" itemValue="" />
+            <f:selectItems value="#{indexController.presentations}" />
+            <p:ajax update="seat" listener="#{indexController.stateChangeListener}" />
+        </p:selectOneMenu>
+
+        <br></br>
+        <br></br>
+    <p:outputLabel  value="Sitzplatz auswählen: " />
+    <p:selectOneMenu id="seat" for="seat" value="#{indexController.selectedStringSeat}">
+        <f:selectItem itemLabel="Wählen Sie einen Sitzplatz aus" itemValue="" />
+        <f:selectItems value="#{indexController.seats}" />
+    </p:selectOneMenu>
+
+
+
+
+    </h:form>
 </h:body>
 </html>

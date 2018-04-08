@@ -2,6 +2,7 @@ package at.htl.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,11 +22,15 @@ public class Presentation implements Serializable{
     @JoinColumn(name = "PRE_ROO_ID")
     private Room room;
 
+    @Column(name="PRE_TIME")
+    private String time;
 
 
-    public Presentation(Movie movie, Room room) {
+
+    public Presentation(Movie movie, Room room, String time) {
         this.setMovie(movie);
         this.setRoom(room);
+        this.setTime(time);
     }
 
     public Presentation() {
@@ -54,5 +59,13 @@ public class Presentation implements Serializable{
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String  time) {
+        this.time = time;
     }
 }

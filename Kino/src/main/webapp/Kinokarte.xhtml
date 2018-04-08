@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Kino</title>
+</h:head>
+<h:body>
+    <h:form>
+
+    <h1>Ihre Kinokarte:</h1>
+
+        <h:outputLabel style="font-weight:bold">Preis: </h:outputLabel>
+    <h:outputLabel value="#{indexController.card.price}"/> <br></br>
+        <h:outputLabel style="font-weight:bold">Film: </h:outputLabel>
+        <h:outputLabel value="#{indexController.card.presentation.movie.name}"></h:outputLabel> <br></br>
+        <h:outputLabel style="font-weight:bold">Uhrzeit: </h:outputLabel>
+        <h:outputLabel value="#{indexController.card.presentation.time}"></h:outputLabel> <br></br>
+        <h:outputLabel style="font-weight:bold">Saal: </h:outputLabel>
+        <h:outputLabel value="#{indexController.card.presentation.room.name}"></h:outputLabel> <br></br>
+        <h:outputLabel style="font-weight:bold">Platz: </h:outputLabel>
+        <h:outputLabel value="#{indexController.card.seat}"></h:outputLabel>
+
+        <br></br> <br></br>
+
+        <p:commandButton value="Weitere Karte kaufen" action="/index.xhtml" actionListener="#{indexController.setSelectionNull}"></p:commandButton>
+    </h:form>
+</h:body>
+</html>

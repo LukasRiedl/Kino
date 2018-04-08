@@ -26,4 +26,12 @@ public class MovieFacade {
         Query q = em.createQuery("select s from Movie s");
         return q.getResultList();
     }
+
+    public Movie getMovieById(int id)
+    {
+        Query q = em.createQuery("select m from Movie m where m.id = :id")
+                .setParameter("id", Long.valueOf(id));
+
+        return (Movie) q.getResultList().get(0);
+    }
 }
