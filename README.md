@@ -1,4 +1,7 @@
 # Kino
+
+Damit es gestartet werden kann, muss noch ein db Ordner erstellt werden und darin die DB gestartet werden
+
 Miniprojekt - Kino / Lukas Riedl / HTL Leonding
 
 
