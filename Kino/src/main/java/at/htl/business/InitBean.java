@@ -33,50 +33,53 @@ public class InitBean {
     @PostConstruct
     public void init() throws ParseException, IOException {
 
-        URL classesRootDir = getClass().getProtectionDomain().getCodeSource().getLocation();
-
-
-        String path = classesRootDir.toString();
-
-        String[] help = path.split("/target");
-
-        String help2 = help[0];
-
-        String finalPath = help2.substring(5);
-
         String Uhrzeit = "18 Uhr";
 
-        File file = new File(finalPath + "/Avengers.jpg");
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource("Avengers.jpg").getFile());
+
+        //File file = new File(finalPath + "/Avengers.jpg");
         byte[] picInBytes = new byte[(int) file.length()];
         FileInputStream fileInputStream = new FileInputStream(file);
         fileInputStream.read(picInBytes);
         fileInputStream.close();
 
-        File file1 = new File(finalPath + "/panther.jpg");
+
+        File file1 = new File(classLoader.getResource("panther.jpg").getFile());
+
+        //File file1 = new File(finalPath + "/panther.jpg");
         byte[] picInBytes1 = new byte[(int) file1.length()];
         FileInputStream fileInputStream1 = new FileInputStream(file1);
         fileInputStream1.read(picInBytes1);
         fileInputStream1.close();
 
-        File bienemaja = new File(finalPath + "/bienemaja2.jpg");
+        File bienemaja = new File(classLoader.getResource("bienemaja2.jpg").getFile());
+
+        //File bienemaja = new File(finalPath + "/bienemaja2.jpg");
         byte[] picInBytes2 = new byte[(int) bienemaja.length()];
         FileInputStream fileInputStream2 = new FileInputStream(bienemaja);
         fileInputStream2.read(picInBytes2);
         fileInputStream2.close();
 
-        File deathwish = new File(finalPath + "/deathwish.jpg");
+        File deathwish = new File(classLoader.getResource("deathwish.jpg").getFile());
+
+        //File deathwish = new File(finalPath + "/deathwish.jpg");
         byte[] picInBytes3 = new byte[(int) deathwish.length()];
         FileInputStream fileInputStream3 = new FileInputStream(deathwish);
         fileInputStream3.read(picInBytes3);
         fileInputStream3.close();
 
-        File verlegerin = new File(finalPath + "/DieVerlegerin.jpg");
+        File verlegerin = new File(classLoader.getResource("DieVerlegerin.jpg").getFile());
+
+        //File verlegerin = new File(finalPath + "/DieVerlegerin.jpg");
         byte[] picInBytes4 = new byte[(int) verlegerin.length()];
         FileInputStream fileInputStream4 = new FileInputStream(verlegerin);
         fileInputStream4.read(picInBytes4);
         fileInputStream4.close();
 
-        File quietPlace = new File(finalPath + "/quietPlace.jpeg");
+        File quietPlace = new File(classLoader.getResource("quietPlace.jpeg").getFile());
+
+       // File quietPlace = new File(finalPath + "/quietPlace.jpeg");
         byte[] picInBytes5 = new byte[(int) quietPlace.length()];
         FileInputStream fileInputStream5 = new FileInputStream(quietPlace);
         fileInputStream5.read(picInBytes5);
